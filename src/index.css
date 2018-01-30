@@ -11,11 +11,17 @@ body {
   float: left;
 }
 
+.square h1 {
+  position: relative;
+  /*display: block;*/
+  margin-left: 39%;
+  margin-top: 32%;
+}
+
 .holder {
-  position: relative; 
+  position: relative;
   width: 300px;
   height: 300px;
   margin: 0 auto;
-  border: green solid 10px;
   top: 200px;
 }
