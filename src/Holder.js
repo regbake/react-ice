@@ -6,23 +6,38 @@ class Holder extends Component {
   constructor(props){
     super(props);
     this.state = {
-      count: 9
+      clickedSquares: Array(9).fill(null)
     };
+  }
+
+  liftState = (val) => {
+    //make an array with the final X/O
+    console.log(val)
+    const squares = this.state.clickedSquares;
+    const value = val[0];
+    const turn = val[1];
+    squares[value] = turn;
+    this.setState({
+      clickedSquares: squares
+    });
+
+    console.log(this.state.clickedSquares);
+
   }
 
   render() {
     return (
       <div>
         <div className="holder">
-          <Square value={1} />
-          <Square value={2} />
-          <Square value={3} />
-          <Square value={4} />
-          <Square value={5} />
-          <Square value={6} />
-          <Square value={7} />
-          <Square value={8} />
-          <Square value={9} />
+          <Square value={0} liftState={this.liftState} />
+          <Square value={1} liftState={this.liftState} />
+          <Square value={2} liftState={this.liftState} />
+          <Square value={3} liftState={this.liftState} />
+          <Square value={4} liftState={this.liftState} />
+          <Square value={5} liftState={this.liftState} />
+          <Square value={6} liftState={this.liftState} />
+          <Square value={7} liftState={this.liftState} />
+          <Square value={8} liftState={this.liftState} />
         </div>
       </div>
     )

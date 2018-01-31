@@ -25,6 +25,10 @@ class Square extends Component {
         turn: "X"
       });
     }
+
+    //why is it important to assign props to a variable?
+    const value = [this.props.value, this.state.turn];
+    this.props.liftState(value);
   }
 
   render() {
