@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: lightgreen;
 }
 
 .square {
@@ -13,7 +14,6 @@ body {
 
 .square h1 {
   position: relative;
-  /*display: block;*/
   margin-left: 39%;
   margin-top: 32%;
 }

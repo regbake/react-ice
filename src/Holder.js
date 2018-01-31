@@ -6,22 +6,24 @@ class Holder extends Component {
   constructor(props){
     super(props);
     this.state = {
-
+      count: 9
     };
   }
 
   render() {
     return (
-      <div className="holder">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
+      <div>
+        <div className="holder">
+          <Square value={1} />
+          <Square value={2} />
+          <Square value={3} />
+          <Square value={4} />
+          <Square value={5} />
+          <Square value={6} />
+          <Square value={7} />
+          <Square value={8} />
+          <Square value={9} />
+        </div>
       </div>
     )
   }

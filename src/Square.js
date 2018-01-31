@@ -18,16 +18,13 @@ class Square extends Component {
       });
     } else if (this.state.turn === "X"){
       this.setState({
-        clicked: true,
         turn: "O"
       });
     } else {
       this.setState({
-        turn: "X"        
+        turn: "X"
       });
-
     }
-
   }
 
   render() {
