@@ -10,34 +10,44 @@ class Holder extends Component {
     };
   }
 
-  liftState = (val) => {
+  liftState = (value) => {
     //make an array with the final X/O
-    console.log(val)
     const squares = this.state.clickedSquares;
-    const value = val[0];
-    const turn = val[1];
-    squares[value] = turn;
-    this.setState({
-      clickedSquares: squares
-    });
+    console.log(value, "from liftstate", squares);
 
-    console.log(this.state.clickedSquares);
+    if (!squares[value]){
+      squares[value] = "X";
+      this.setState({
+        clickedSquares: squares
+      });
+    } else if (squares[value] === "X"){
+      squares[value] = "O";
+      this.setState({
+        clickedSquares: squares
+      });
+    } else {
+      squares[value] = "X";
+      this.setState({
+        clickedSquares: squares
+      });
+    }
 
+    console.log(value, "from liftstate", squares);
   }
 
   render() {
     return (
       <div>
         <div className="holder">
-          <Square value={0} liftState={this.liftState} />
-          <Square value={1} liftState={this.liftState} />
-          <Square value={2} liftState={this.liftState} />
-          <Square value={3} liftState={this.liftState} />
-          <Square value={4} liftState={this.liftState} />
-          <Square value={5} liftState={this.liftState} />
-          <Square value={6} liftState={this.liftState} />
-          <Square value={7} liftState={this.liftState} />
-          <Square value={8} liftState={this.liftState} />
+          <Square value={0} liftState={this.liftState} turn={this.state.clickedSquares[0]} />
+          <Square value={1} liftState={this.liftState} turn={this.state.clickedSquares[1]} />
+          <Square value={2} liftState={this.liftState} turn={this.state.clickedSquares[2]} />
+          <Square value={3} liftState={this.liftState} turn={this.state.clickedSquares[3]} />
+          <Square value={4} liftState={this.liftState} turn={this.state.clickedSquares[4]} />
+          <Square value={5} liftState={this.liftState} turn={this.state.clickedSquares[5]} />
+          <Square value={6} liftState={this.liftState} turn={this.state.clickedSquares[6]} />
+          <Square value={7} liftState={this.liftState} turn={this.state.clickedSquares[7]} />
+          <Square value={8} liftState={this.liftState} turn={this.state.clickedSquares[8]} />
         </div>
       </div>
     )
