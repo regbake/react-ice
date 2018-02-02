@@ -10,12 +10,34 @@ class Holder extends Component {
     };
   }
 
+  checkWin = () => {
+    //check for win conditions
+    const squares = this.state.clickedSquares;
+
+    if (squares[0] != null && squares[0] === squares[1] && squares[0] === squares[2]){
+      console.log("win across top");
+    } else if (squares[3] != null && squares[3] === squares[4] && squares[3] === squares[5]){
+      console.log("win across middle");
+    } else if (squares[6] != null && squares[6] === squares[7] && squares[6] === squares[8]){
+      console.log("win across bottom")
+    } else if (squares[0] != null && squares[0] === squares[3] && squares[0] === squares[6]){
+      console.log("left vert win");
+    } else if (squares[1] != null && squares[1] === squares[4] && squares[1] === squares[7]){
+      console.log("middle vert win");
+    } else if (squares[2] != null && squares[2] === squares[5] && squares[2] === squares[8]){
+      console.log("right vert win");
+    } else if (squares[0] != null && squares[0] === squares[4] && squares[0] === squares[8]){
+      console.log("left -> right diagnl win");
+    } else if (squares[2] != null && squares[2] === squares[4] && squares[2] === squares[6]){
+      console.log("right -> left diagnl win");
+    }
+  }
+
   liftState = (value) => {
     //make an array with the final X/O
     const squares = this.state.clickedSquares;
-    console.log(value, "from liftstate", squares);
 
-    if (!squares[value]){
+    if (!squares[value]){ //if it's null, first click
       squares[value] = "X";
       this.setState({
         clickedSquares: squares
@@ -32,7 +54,7 @@ class Holder extends Component {
       });
     }
 
-    console.log(value, "from liftstate", squares);
+    this.checkWin();
   }
 
   render() {
